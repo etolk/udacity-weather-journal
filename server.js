@@ -1,7 +1,4 @@
-// Setup empty JS object to act as endpoint for all routes
-projectData = {};
-
-// Require Express to run server and routes
+// Initiate Express to run server and routes
 const express = require('express');
 
 // Start up an instance of app
@@ -11,7 +8,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// Cors for cross origin allowance
+// Initiate Cors for cross origin allowance
 const cors = require('cors');
 app.use(cors());
 
@@ -22,18 +19,13 @@ app.use(express.static('website'));
 const port = 8000;
 const server = app.listen(port, () => console.log(`Server successfully running on localhost:${port}`));
 
-// POST route
-app.post('/post', callBack);
+// Empty JS object to act as endpoint for all routes
+projectData = {};
 
-function callBack(req, res) {
-    res.send('POST received');
-};
-
-// POST a weather
-const data = [];
-
-app.post('/weather', addWeather);
-
-function addWeather(req, res) {
-    data.push(req.body);
-};
+// POST data into the site object
+const postData = (req, res) => {
+    projectData = req.body;
+    console.log(projectData);
+    return res.send(projectData);
+}
+app.post('/postData', postData);
