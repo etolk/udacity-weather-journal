@@ -3,11 +3,12 @@ let baseURL = 'http://api.openweathermap.org/data/2.5/weather?units=metric&zip='
 let apiKey = '&appid=...' //insert your API key here
 
 // Create a new date instance dynamically with JS
-let d = new Date();
-let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
+let newDate = new Date().toDateString();
 
+// Listener for updating the UI on button click
 document.getElementById('generate').addEventListener('click', performAction);
 
+//Main function
 function performAction(e) {
     const zip = document.getElementById('zip').value;
     const feelings = document.getElementById('feelings').value;
@@ -18,22 +19,26 @@ function performAction(e) {
             postData('/postData', {
                 temp: temp,
                 city: name,
-                feeling: feelings
+                feelings: feelings
             })
         })
+        .then(
+            () => updateUI()
+        )
 }
 
+// Getting the weather data from OpenWeather by API
 const getWeather = async (baseURL, zip, apiKey) => {
-    console.log(baseURL + zip + apiKey);
     const res = await fetch(baseURL + zip + apiKey);
     try {
         const data = await res.json();
-        return data
+        return data;
     } catch (error) {
         console.log("error", error);
     }
 }
 
+// Saving data into site object
 const postData = async (url = '', data) => {
     const response = await fetch(url, {
         method: 'POST',
@@ -48,5 +53,19 @@ const postData = async (url = '', data) => {
         return newData;
     } catch (error) {
         console.log("error", error);
+    }
+}
+
+// Updatin the UI based on all data
+const updateUI = async () => {
+    const request = await fetch('/getData');
+    try {
+        const weatherData = await request.json();
+        document.getElementById('date').innerHTML = newDate;
+        document.getElementById('location').innerHTML = weatherData.city;
+        document.getElementById('temp').innerHTML = Math.round(weatherData.temp) + ' °C';
+        document.getElementById('content').innerHTML = weatherData.feelings;
+    } catch (error) {
+        console.log('The UI could not be updated', error);
     }
 }

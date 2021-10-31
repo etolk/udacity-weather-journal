@@ -25,7 +25,12 @@ projectData = {};
 // POST data into the site object
 const postData = (req, res) => {
     projectData = req.body;
-    console.log(projectData);
     return res.send(projectData);
-}
+};
 app.post('/postData', postData);
+
+// GET data from the site object
+const weather = (req, res) => {
+    return res.send(projectData);
+};
+app.get('/getData', weather);
