@@ -1,111 +1,124 @@
-body{
-    background: #fffff8;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+body {
+  background: #6068a3;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-#app{
-    display: grid;
-    grid-auto-rows: minmax(150px, auto);
-    /* grid-template-columns:  */
-    height:100vh;
-    background: #f23557;
-    color: #f0d43a;
-    justify-content: center;
-    grid-gap: 1em;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
+#app {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  justify-content: center;
+  font-size: 50px;
+  font-family: "Roboto", sans-serif;
+  align-items: center;
 }
 
-.holder{
-
+.holder.headline {
+  margin-top: 40px;
+  margin-bottom: 80px;
 }
 
-.entry{
-    background: rgba(59, 74, 107, .4);
+#entryHolder {
+  position: relative;
+  padding: 40px 10%;
+  border-radius: 20px;
+  background: #fff;
+  color: #53627c;
+  max-width: fit-content;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#entryHolder{
-
+#date {
+  margin-bottom: 22px;
+  font-size: 15px;
+  color: #bb4430;
 }
 
-#date{
-
+#temp {
+  font-size: 50px;
 }
 
-#temp{
-
-}
-
-#content{
-
-}
-
-.headline {
-
-}
-.title{
-
+#content {
+  color: #bb4430;
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
-label{
-    display:block;
-    font-size: 27px;
+label {
+  display: block;
+  font-size: 27px;
 }
 
-input{
-    display:block;
-    height: 60px;
-    width: 320px;
-    background:#22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
+input {
+  display: block;
+  height: 40px;
+  width: 320px;
+  background: none;
+  color: #fff;
+  font-size: 25px;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  border-bottom: 1px solid;
+  margin-bottom: 20px;
+  /* padding: 5px 5px 10px; */
 }
 
-button{
-    width: 400px;
-    height: 100px;
-    background: #3b4a6b;
-    color: #f0d43a;
-    font-size: 26px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
-    box-shadow: 2px 4px 5px #444;
-}
-h1{
-    font-size: 36px;
+button {
+  width: 370px;
+  height: 70px;
+  background: #bb4430;
+  color: #fff;
+  font-size: 26px;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  margin-bottom: 5px;
 }
 
-textarea{
-    background:#22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
+.msg {
+  margin-bottom: 20px;
+  color: #e2ff00;
+  font-size: 20px;
 }
+
+h1 {
+  font-size: 36px;
+}
+
+textarea {
+  background: none;
+  color: #fff;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  border: 1px solid;
+  margin-bottom: 20px;
+}
+
 /* Reset style for HTML element on active to have no border*/
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-    outline: none;
+  outline: none;
 }
+
 /* Style for Placeholder Text*/
-::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
+::placeholder {
+  /* Firefox, Chrome, Opera */
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
 
-} 
-  
-:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
 
-} 
-  
-::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
-
-} 
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
