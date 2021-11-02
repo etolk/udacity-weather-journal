@@ -15,4 +15,4 @@ You need to have an openweathermap API key. You can get it [here](https://openwe
 * HTML
 * CSS
 * JavaScript
-* NODE JS
+* Node.js
